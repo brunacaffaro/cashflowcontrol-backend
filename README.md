@@ -1,146 +1,140 @@
-# 💰 Cashflow Tracker - Frontend
 
-## 1. Project Title
+# 💰 Cashflow Tracker API (Backend)
 
-**Cashflow Tracker (Frontend)** - Interface visual responsável por gerenciar de forma simples o fluxo de caixa de um pequeno restaurante familiar, permitindo o controle das entradas e saídas em dinheiro de forma organizada e acessível.
+API REST desenvolvida com **Flask** e **SQLAlchemy** para auxiliar na gestão do fluxo de caixa de um restaurante de pequeno porte.  
+Permite que os responsáveis pelo financeiro registrem entradas e saídas de forma prática, visualizem o histórico atualizado e acompanhem o status dos lançamentos.
 
----
-
-## 2. Project Description
-
-Este é o frontend de uma aplicação de fluxo de caixa destinada aos **gestores principais de um restaurante**, desenvolvida como **Single Page Application (SPA)** com **HTML, CSS e JavaScript puro**. A proposta é auxiliar no controle das movimentações financeiras feitas em espécie, que não são automaticamente sincronizadas com o sistema oficial do restaurante.
-
-A interface permite:
-
-* Registro e visualização de lançamentos de caixa
-* Visão dos saldos, com respectivas entradas e saídas
-* Atualização de status com checkbox
-
-O frontend foi projetado **exclusivamente para uso em computadores desktop**, com interface simples, direta e eficiente para operações do dia a dia.
+> 💻 A aplicação é voltada exclusivamente para **uso em desktop**, com comunicação com um frontend SPA desenvolvido separadamente.
 
 ---
 
-## 3. Table of Contents
+## 📌 Índice
 
-1. [Project Title](#1-project-title)
-2. [Project Description](#2-project-description)
-3. [Table of Contents](#3-table-of-contents)
-4. [Installation and Setup](#4-installation-and-setup)
-5. [How to Use](#5-how-to-use)
-6. [Test Plan](#6-test-plan)
-
----
-
-## 4. Installation and Setup
-
-### Requisitos:
-
-* Um navegador moderno (Google Chrome, Firefox, Edge...)
-* API Backend em funcionamento no endereço: `http://localhost:5000`
-
-### Passo a passo:
-
-Passo a passo:
-1. Abra o arquivo `index.html` no navegador de sua preferência.
-2. Certifique-se de que a API backend está rodando (`http://localhost:5000`)
-3. Interaja com os formulários e histórico na interface.
+1. [Descrição do Projeto](#-descrição-do-projeto)  
+2. [Tecnologias Utilizadas](#-tecnologias-utilizadas)  
+3. [Instalação e Execução](#-instalação-e-execução)  
+4. [Rotas e Funcionalidades da API](#-rotas-e-funcionalidades-da-api)  
+5. [Como Usar](#-como-usar)  
+6. [Créditos](#-créditos)  
+7. [Licença](#-licença)  
+8. [Plano de Testes](#-plano-de-testes)
 
 ---
 
-## 5. How to Use
+## 🧾 Descrição do Projeto
 
-### Funcionalidades principais:
+A Cashflow Tracker API é uma aplicação backend que gerencia lançamentos de fluxo de caixa, como vendas, despesas e retiradas em dinheiro do restaurante.
 
-* ✅ Cadastro de lançamentos financeiros: nome, valor, tipo, categoria, responsável, status, etc. (POST)
-* ✅ Histórico com exibição em tabela dos lançamentos realizados (GET)
-* ✅ Filtro automático: exibe apenas os lançamentos dos **últimos 90 dias**, para evitar excesso de dados e melhorar a performance
-* ✅ Ordenação: os lançamentos são mostrados dos **mais recentes para os mais antigos** automaticamente
-* ✅ Atualização de status (ex: marcar como "baixado") com um clique (PATCH)
-* ✅ Exclusão de lançamentos com botão dedicado (DELETE)
+### 📌 Principais objetivos:
+- Oferecer controle granular de lançamentos feitos em dinheiro
+- Otimizar a conferência dos saldos entre o caixa físico e o sistema contábil principal (ERP)
+- Permitir atualizações recorrentes de maneira simples e estruturada
 
-### Recursos de acessibilidade e nativos do navegador:
-
-Este projeto faz uso de **validações HTML5** para garantir simplicidade, compatibilidade e melhor experiência ao usuário:
-
-* O campo de **data** usa `<input type="date">` com **ícone de calendário nativo**
-* O campo monetário possui `type="number" step="0.01"`
-
-#### Exemplos de mensagens automáticas:
-
-* "Preencha este campo"
-* "O valor deve ser 31/12/2100 ou anterior"
-* "Insira um valor válido"
-
-Essas mensagens e comportamentos são exibidos automaticamente pelo navegador com base nos atributos `required`, `max`, `step`, etc. É possível personalizá-los com JavaScript no futuro, caso desejado.
-
+### 📌 Público-alvo:
+- Time financeiro e sócios administradores do restaurante
 
 ---
 
-## 6. Test Plan
+## 🔧 Tecnologias Utilizadas
 
-> A aplicação foi projetada exclusivamente para **dispositivos desktop**, com foco em navegadores modernos como **Google Chrome** e **Microsoft Edge**.
-
-### 💻 Ambiente de Teste
-
-* **Dispositivo:** Computador (Desktop)
-* **Navegadores testados:** Google Chrome, Microsoft Edge
-* **Resoluções testadas:** a partir de **1025px**
-
----
-
-### 🔁 Funcionamento Geral
-
-* ✅ Responsividade geral da página (em diferentes larguras de tela)
-* ✅ Carregamento inicial de dados com backend ativo
-* ✅ Mensagem de erro ao não conectar com backend ("Erro ao carregar transações")
-* ✅ Visualização do histórico quando não há lançamentos: tabela ocultada
+- **Python 3.11**
+- **Flask**
+- **Flask-OpenAPI3** para documentação automática (Swagger UI)
+- **SQLAlchemy** + **SQLite** para ORM e persistência
+- **Flask-CORS** para integração com o frontend
+- **Pydantic** para validação de schemas
 
 ---
 
-### 📝 Uso do Formulário
+## ⚙️ Instalação e Execução
 
-#### ✅ Validações obrigatórias
+### ✅ Pré-requisitos
 
-* ✅ Nome (campo obrigatório) -> "Preencha este campo" (HTML)
-* ✅ Data (campo obrigatório) -> Dia de hoje como padrão inicialmente e após a limpeza do conteúdo
-* ✅ Valor (campo obrigatório) -> "Preencha este campo" (HTML)
-* ✅ Tipo (campo obrigatório) -> "Saída" como padrão 
-* ✅ Categoria (campo obrigatório) -> "Selecione um item da lista" (HTML)
+- Python 3.11 ou superior
+- Navegador moderno (para testes no Swagger)
 
-#### 🧪 Testes de integridade
+### 🔄 Passo a passo
 
-* ✅ Nome duplicado (não permitido) -> Erro: "Lançamento de mesmo nome já salvo na base. Tente outro nome."
-* ✅ Nome longo: inserção de novos caracteres não permitida acima de 50 caracteres
-* ✅ Data inválida: erro exibido ao ultrapassar limite ou formato incorreto -> "Insira um valor válido. O campo está incompleto ou tem uma data inválida."
-* ✅ Valor inválido: erro exibido ao digitar caracteres não numéricos ou inválidos -> "Insira um número"
-* ✅ Comentário longo: inserção de novos caracteres não permitida acima de 50 caracteres
-* ✅ Formulário limpo após submissão com sucesso (mantendo a data do dia atual)
+```bash
+# Clone o repositório (ou baixe o .zip):
+https://github.com/brunacaffaro/cashflowcontrol-backend/
+```
+
+```bash
+# Crie e ative o ambiente virtual
+python -m venv meu-venv
+.\meu-venv\Scripts\Activate.ps1
+```
+
+```bash
+# Acesse a pasta do backend
+cd .\meu_app_api
+```
+
+```bash
+# Instale as dependências
+pip install -r requirements.txt
+```
+
+> ⚠️ **Importante:** Se estiver usando pip 24+, execute antes:
+> ```bash
+> pip install "pip<24"
+> ```
+
+```bash
+# Execute o servidor
+flask run --host 0.0.0.0 --port 5000 --reload
+```
+
+🔗 Acesse a documentação Swagger:  
+[http://localhost:5000/openapi](http://localhost:5000/openapi)
 
 ---
 
-### 📊 Histórico de Transações (Tabela)
+## 🔁 Rotas e Funcionalidades da API
 
-#### 🔄 Inserção de novas transações
+| Método | Rota                    | Descrição                                        |
+|--------|-------------------------|--------------------------------------------------|
+| GET    | `/transactions`         | Lista todos os lançamentos (ordem decrescente)   |
+| POST   | `/transaction`          | Adiciona um novo lançamento                      |
+| GET    | `/transaction?name=...` | Busca um lançamento pelo nome                    |
+| PATCH  | `/transaction/status`   | Atualiza o status de um lançamento               |
+| DELETE | `/transaction?name=...` | Remove um lançamento pelo nome                   |
 
-* ✅ Títulos da tabela corretamente exibidos
-* ✅ Valores corretamente alinhados e formatados (R\$ e data)
-* ✅ Suporte a nomes longos sem quebra visual - garantido também pela limitação de caracteres
-* ✅ Suporte a comentários extensos - limitado a 50 caracteres
-* ✅ Saldo reflete as novas transações
-
-#### 🔄 Atualização de status
-
-* ✅ Marcar lançamento como "Lançado"
-* ✅ Reverter lançamento para "Pendente"
-* ✅ Atualização reflete corretamente no campo de status no database
-
-#### 🗑️ Remoção de lançamentos
-
-* ✅ Remoção de entrada: saldo ajustado corretamente
-* ✅ Remoção de saída: saldo ajustado corretamente
-* ✅ Inserção de novo lançamento com mesmo nome de lançamento removido: permitido
+### 🧠 Observações:
+- O campo `status` é atualizado via checkbox no frontend.
+- Os lançamentos exibidos no frontend são limitados aos **últimos 90 dias** para melhor performance.
+- As datas são salvas como `DateTime` (padrão do Python/SQLAlchemy).
 
 ---
 
-Esse plano de teste garante a cobertura básica funcional e de usabilidade para a versão atual da aplicação.
+## 🧪 Como Usar
 
+- O frontend consome essa API utilizando **fetch()** e **formulários HTML5**.
+- Os testes podem ser feitos diretamente via Swagger, disponível em `/openapi`.
+
+---
+
+## ✅ Plano de Testes
+
+### Ambiente de Teste
+
+- **Dispositivo:** Desktop
+- **Browser:** Chrome, Edge
+- **Resoluções testadas:** a partir de 1025px 
+
+#### 📌 Lançamentos
+- ✅ Adicionar lançamento com todos os campos válidos
+- ✅ Tentar adicionar lançamento com campos faltando
+- ✅ Adicionar múltiplos lançamentos no mesmo dia
+- ⚠️ Adicionar lançamento com valor negativo (essa restrição não existe dentro do Swagger)
+
+#### 📌 Histórico e Status
+- ✅ GET lista ordenada por data decrescente
+- ✅ Lançamentos anteriores a 90 dias aparecem no database e no GET/transactions
+- ✅ PATCH altera status de "Pendente" para "Lançado" e vice-versa
+- ✅ DELETE remove corretamente do database
+
+#### 📌 Validações internas
+- ✅ Datas salvas corretamente como `datetime`
+- ✅ Erro 404 para remoção de lançamento inexistente (Lançamento não encontrado na base)
