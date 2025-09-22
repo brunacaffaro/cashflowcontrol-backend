@@ -5,18 +5,18 @@ from pydantic import BaseModel
 
 class TransactionSchema(BaseModel):
     """Schema for creating a new financial transaction."""
-    name: str = "Manutenção Câmeras Ago2025"
-    t_date: date = date(2025, 9, 23)
-    amount: float = 150.0
-    t_type: str = "Saída"
-    category: str = "Despesas Gerais"
-    t_status: bool = False
-    comment: Optional[str] = "Parcela 1/5"
+    name: str
+    t_date: date
+    amount: float
+    t_type: str
+    category: str
+    t_status: bool
+    comment: Optional[str]
 
 
 class SearchTransactionSchema(BaseModel):
     """Schema for searching a transaction by its name."""
-    name: str = "Saque Bradesco 25/09"
+    name: str
 
 
 class TransactionsListSchema(BaseModel):
