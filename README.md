@@ -56,38 +56,31 @@ A Cashflow Tracker API é uma aplicação backend que gerencia lançamentos de f
 ### 🔄 Passo a passo
 
 ```bash
-# Clone o repositório (ou baixe o .zip):
+# Baixe o .zip do repositório:
 https://github.com/brunacaffaro/cashflowcontrol-backend/
 ```
 
 ```bash
-# Crie e ative o ambiente virtual
+# Abra o PowerShell para criar e ativar o ambiente virtual (nome sugerido: meu-venv)
 python -m venv meu-venv
 .\meu-venv\Scripts\Activate.ps1
+# Clicando no arquivo app.py, você deve ver no canto inferior direito a sua versão do Python ao lado de (meu-venv).
+# Caso não veja, clique ali e selecione meu-venv como o "Interpreter"
 ```
 
 ```bash
-# Acesse a pasta do backend
-cd .\meu_app_api
-```
-
-```bash
-# Instale as dependências
+# Se estiver rodando o terminal dentro da pasta onde se encontram os requirements, digite:
 pip install -r requirements.txt
+# Caso esteja em uma pasta superior, use o comando a seguir para entrar na pasta (confira o nome a depender de como fez o download):
+cd .\cashflowcontrol-backend-main
 ```
-
-> ⚠️ **Importante:** Se estiver usando pip 24+, execute antes:
-> ```bash
-> pip install "pip<24"
-> ```
 
 ```bash
 # Execute o servidor
 flask run --host 0.0.0.0 --port 5000 --reload
+# Acesse a documentação com o link apresentado no terminal ou utilizando: http://localhost:5000/openapi
+# Clique em Swagger para visualizar a documentação
 ```
-
-🔗 Acesse a documentação Swagger:  
-[http://localhost:5000/openapi](http://localhost:5000/openapi)
 
 ---
 
