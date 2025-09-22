@@ -81,7 +81,7 @@ cd .\cashflowcontrol-backend-main
 ```bash
 # Assim que finalizar, execute o servidor:
 flask run --host 0.0.0.0 --port 5000 --reload
-# Acesse a documentação com o link apresentado no terminal
+# Abra o http://localhost:5000/#/ no navegador para verificar o status da API em execução.
 # Clique em Swagger para visualizar a documentação
 ```
 
