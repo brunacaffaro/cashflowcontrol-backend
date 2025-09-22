@@ -59,24 +59,29 @@ https://github.com/brunacaffaro/cashflowcontrol-backend/
 ```
 
 ```bash
-# Abra o PowerShell para criar e ativar o ambiente virtual (nome sugerido: meu-venv)
+# Abra o PowerShell para criar ambiente virtual (nome sugerido: meu-venv)
 python -m venv meu-venv
+# Se um aparecer um pop up com: “We noticed a new environment has been created. Do you want to select it for the workspace folder?”, clique em  "Yes"
+
+# Ative o ambiente virtual criado
 .\meu-venv\Scripts\Activate.ps1
-# Clicando no arquivo app.py, você deve ver no canto inferior direito a sua versão do Python ao lado de (meu-venv).
-# Caso não veja, clique ali e selecione meu-venv como o "Interpreter"
+
+# Clicando em alguns dos arquivos .py, você deve ver no canto inferior direito a sua versão do Python ao lado de (meu-venv).
+# Caso não veja, clique ali e selecione meu-venv como o "Interpreter".
 ```
 
 ```bash
-# Se estiver rodando o terminal dentro da pasta onde se encontram os requirements, digite:
+# Se estiver rodando o terminal dentro da pasta onde se encontra o arquivo requirements.txt, digite:
 pip install -r requirements.txt
 # Caso esteja em uma pasta superior, use o comando a seguir para entrar na pasta (confira o nome a depender de como fez o download):
 cd .\cashflowcontrol-backend-main
+# A instalação do arquivo requirements.txt pode demorar um pouco.
 ```
 
 ```bash
-# Execute o servidor
+# Assim que finalizar, execute o servidor:
 flask run --host 0.0.0.0 --port 5000 --reload
-# Acesse a documentação com o link apresentado no terminal ou utilizando: http://localhost:5000/openapi
+# Acesse a documentação com o link apresentado no terminal
 # Clique em Swagger para visualizar a documentação
 ```
 
