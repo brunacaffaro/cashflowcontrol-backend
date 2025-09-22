@@ -15,9 +15,7 @@ Permite que os responsáveis pelo financeiro registrem entradas e saídas de for
 3. [Instalação e Execução](#-instalação-e-execução)  
 4. [Rotas e Funcionalidades da API](#-rotas-e-funcionalidades-da-api)  
 5. [Como Usar](#-como-usar)  
-6. [Créditos](#-créditos)  
-7. [Licença](#-licença)  
-8. [Plano de Testes](#-plano-de-testes)
+6. [Plano de Testes](#-plano-de-testes)
 
 ---
 
