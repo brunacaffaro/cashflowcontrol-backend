@@ -41,9 +41,9 @@ O frontend foi projetado **exclusivamente para uso em computadores desktop**, co
 ### Passo a passo:
 
 Passo a passo:
-    * 1. Abra o arquivo `index.html` no navegador de sua preferência.
-    * 2. Certifique-se de que a API backend está rodando (`http://localhost:5000`)
-    * 3. Interaja com os formulários e histórico na interface.
+1. Abra o arquivo `index.html` no navegador de sua preferência.
+2. Certifique-se de que a API backend está rodando (`http://localhost:5000`)
+3. Interaja com os formulários e histórico na interface.
 
 ---
 
